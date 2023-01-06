@@ -1,2 +1,2 @@
-# tf-module
+# aws_policy
 Template
