@@ -1,20 +1,21 @@
-resource "aws_iam_policy" "policy" {
-  name = var.name
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{
-      Action   = var.actions
-      Effect   = "Allow"
-      Sid      = ""
-      Resource = var.resources
-      }
-    ]
-  })
-
+resource "random_pet" "this" {
+  prefix = "policy-attachment"
+  keepers = {
+    # Generate a new pet name each time we switch to a new AMI id
+    policies = join(",",var.policies)
+    roles = join(",",var.roles)
+    users = join(",",var.users)
+    groups = join(",",var.groups)
+  }
+  length = 3
+  separator = "-"
 }
 
-resource "aws_iam_role_policy_attachment" "lambda_policy" {
-  role       = var.role
-  policy_arn = aws_iam_policy.policy.arn
+resource "aws_iam_policy_attachment" "this" {
+  count = length(var.policies)
+  name = random_pet.this.id
+  users      = var.users
+  roles      = var.roles
+  groups     = var.groups
+  policy_arn = var.policies[count.index]
 }

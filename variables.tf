@@ -1,15 +1,27 @@
 variable "name" {
+  type = string
+  description = "(optional) describe your variable"
+  default = null
 }
 
-variable "actions" {
-  description = "(optional) describe your variable"
+variable "policies" {
+  type = list(string)
 }
 
-variable "role" {
-  type        = string
-  description = "(optional) describe your variable"
+variable "roles" {
+  type        = list(string)
+  description = "roles list"
+  default = []
 }
 
-variable "resources" {
-  description = "(optional) describe your variable"
+variable "users" {
+  type        = list(string)
+  description = "users list"
+  default = []
+}
+
+variable "groups" {
+  type        = list(string)
+  description = "groups list"
+  default = []
 }
