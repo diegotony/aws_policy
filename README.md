@@ -1,2 +1,2 @@
 # aws_policy
-Template
+Custom module for AWS policies
