@@ -38,5 +38,5 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_name"></a> [name](#output\_name) | n/a |
+| <a name="output_policy_arn"></a> [policy\_arn](#output\_policy\_arn) | n/a |
 <!-- END_TF_DOCS -->
