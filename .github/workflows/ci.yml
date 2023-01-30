@@ -9,8 +9,6 @@ on:
     branches:
       - main
 
-
-
 jobs:
   terraform-module:
     uses: diegotony/gh-pipelines/.github/workflows/terraform-module.yml@main
@@ -18,5 +16,4 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       AWS_ACCESS_ROLE: ${{ secrets.AWS_ACCESS_ROLE }}
       AWS_DEFAULT_REGION: "us-east-1"
-    with:
       AWS_ACCOUNT_ID:  ${{ secrets.AWS_ACCOUNT_ID }}
