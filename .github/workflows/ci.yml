@@ -9,6 +9,9 @@ on:
     branches:
       - main
 
+env:
+  AWS_ACCOUNT_ID:  ${{ secrets.AWS_ACCOUNT_ID }}
+
 jobs:
   terraform-module:
     uses: diegotony/gh-pipelines/.github/workflows/terraform-module.yml@main
